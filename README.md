@@ -9,4 +9,4 @@ This repository provides tutorial code for machine learning researchers to learn
 
 # Tutorials
 
-* [Activity classifier](https://github.com/RobinChao/turicreate-tutorial/blob/master/tutorial/Activity%20classifier/README.md)
+* [Activity classifier](/Activity%20classifier/README.md)
