@@ -4,20 +4,21 @@ import turicreate as tc
 # define data directory
 data_dir = '../HAPT Data Set/RawData/'
 
+
 # define fine label for containing interval
 def find_label_for_containing_interval(intervals, index):
     containing_interval = intervals[:, 0][(intervals[:, 1] <= index) & (index <= intervals[:, 2])]
     if len(containing_interval) == 1:
         return containing_interval[0]
 
+
 # Load labels
 labels = tc.SFrame.read_csv(data_dir + 'labels.txt', delimiter=' ', header=False, verbose=False)
 labels = labels.rename({'X1': 'exp_id', 'X2': 'user_id', 'X3': 'activity_id', 'X4': 'start', 'X5': 'end'})
 
-print labels
+print(labels)
 
-
-from glob import  glob
+from glob import glob
 
 acc_files = glob(data_dir + 'acc_*.txt')
 gyro_files = glob(data_dir + 'gyro_*.txt')
@@ -48,8 +49,8 @@ for acc_file, gyro_file in files:
 
     data = data.append(sf)
 
-print data
-print '\n\n\n'
+print(data)
+print('\n\n\n')
 
 target_map = {
     1.: 'walking',
@@ -63,9 +64,9 @@ target_map = {
 # Use the same labels used in the experiment
 data = data.filter_by(target_map.keys(), 'activity_id')
 data['activity'] = data['activity_id'].apply(lambda x: target_map[x])
-data  = data.remove_column('activity_id')
+data = data.remove_column('activity_id')
 
 data.save('hapt_data.sframe')
 
-print data
-print '\n\n\n'
+print(data)
+print('\n\n\n')
