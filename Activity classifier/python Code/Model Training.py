@@ -1,5 +1,8 @@
 import turicreate as tc
 
+# Use all GPUs
+tc.config.set_num_gpus(-1)
+
 # load sessions from preprocessed data
 data = tc.SFrame('hapt_data.sframe')
 
@@ -18,7 +21,7 @@ metrics = model.evaluate(test)
 print(metrics['accuracy'])
 
 # Save the model for later use in Turi Create
-model.save('mymodel.model')
+model.save('activityClassifier.model')
 
 # Export for use in Core ML
 model.export_coreml('MyActivityClassifier.mlmodel')

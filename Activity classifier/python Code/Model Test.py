@@ -2,7 +2,7 @@ import  turicreate as tc
 
 
 # load saved model
-activityClassifier = tc.load_model('mymodel.model')
+activityClassifier = tc.load_model('activityClassifier.model')
 
 # load sessions from preprocessed data
 data = tc.SFrame('hapt_data.sframe')
