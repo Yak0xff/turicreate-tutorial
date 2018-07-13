@@ -10,3 +10,4 @@ This repository provides tutorial code for machine learning researchers to learn
 # Tutorials
 
 * [Activity classifier](/Activity%20classifier/README.md)
+* [Image classifier](/Image%20classifier/README.md)
